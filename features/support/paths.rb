@@ -27,7 +27,7 @@ module NavigationHelpers
     when /^the Similar Movies page for "(.*)"$/
       same_director_path Movie.find_by_title($1) 				
 
-
+    when /^the RottenPotatoes home page$/ then "/movies"
 	
 
     # Add more mappings here.

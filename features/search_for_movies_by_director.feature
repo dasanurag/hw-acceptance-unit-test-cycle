@@ -32,3 +32,27 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+
+Scenario: destroy movie
+  Given I am on the details page for "Alien"
+  Then I press "Delete"
+  Then I should be on the RottenPotatoes home page
+  And I should see "Movie 'Alien' deleted"
+
+Scenario: create movie
+  Given I am on the RottenPotatoes home page
+  Then I follow "Add new movie"
+  And I fill in "Title" with "Inception"
+  And I select "PG" from "Rating"
+  And I press "Save Changes"
+  Then I should be on the RottenPotatoes home page
+  And I should see "Inception was successfully created"
+
+Scenario: update movie
+  Given I am on the details page for "Alien"
+  Then I press "Edit"
+  And I fill in "Director" with "Mark Chapman"
+  And I select "R" from "Rating"
+  And I press "Update Movie Info"  
+  Then I should be on the RottenPotatoes home page
+  And I should see "Alien was successfully updated" 
