@@ -48,11 +48,3 @@ Scenario: create movie
   Then I should be on the RottenPotatoes home page
   And I should see "Inception was successfully created"
 
-Scenario: update movie
-  Given I am on the details page for "Alien"
-  Then I press "Edit"
-  And I fill in "Director" with "Mark Chapman"
-  And I select "R" from "Rating"
-  And I press "Update Movie Info"  
-  Then I should be on the RottenPotatoes home page
-  And I should see "Alien was successfully updated" 
